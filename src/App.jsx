@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import Example from './Grafico';
 
 function App() {
   // Estados para almacenar los valores
@@ -23,7 +24,7 @@ function App() {
       setCorrienteAC(newCorrienteAC.toFixed(2));
       setVoltajeDC(newVoltajeDC.toFixed(2));
       setSoc(newSoc.toFixed(2));
-    }, 2000); // ese 2000 es el tiempo en milisegundos y son 2 seg
+    }, 2000); // cada 2 segundos
 
     return () => clearInterval(interval);
   }, []);
@@ -39,6 +40,11 @@ function App() {
           <p>Corriente AC: {corrienteAC} A</p>
           <p>Voltaje DC: {voltajeDC} V</p>
           <p>Estado de las Baterías (SOC): {soc} %</p>
+        </div>
+
+        {/* Contenedor del gráfico con clase grafico */}
+        <div className="grafico">
+          <Example />
         </div>
       </header>
     </div>
